@@ -40,7 +40,6 @@ class RestaurantTest {
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
    //<<<<<<<<<<<<<<TOTAL PRICE>>>>>>>>>>>>//
-    //FAILING TEST CASE//
     @Test
     public void calculating_total_price_for_items_added_from_menu(){
         restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
@@ -52,7 +51,7 @@ class RestaurantTest {
         {
             totalPrice=totalPrice+item.getPrice();
         }
-        assertEquals(totalPrice,388);
+        assertEquals(totalPrice,restaurant.getTotalPrice(items_in_menu));
      }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
