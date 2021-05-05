@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
+import java.util.List;
 
 
 import java.time.LocalTime;
@@ -38,7 +39,21 @@ class RestaurantTest {
     }
 
     //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+   //<<<<<<<<<<<<<<TOTAL PRICE>>>>>>>>>>>>//
+    //FAILING TEST CASE//
+    @Test
+    public void calculating_total_price_for_items_added_from_menu(){
+        restaurant =new Restaurant("Amelie's cafe","Chennai",openingTime,closingTime);
+        restaurant.addToMenu("Sweet corn soup",119);
+        restaurant.addToMenu("Vegetable lasagne", 269);
+        int totalPrice=0;
+        List<Item> items_in_menu=restaurant.getMenu();
+        for(Item item:items_in_menu)
+        {
+            totalPrice=totalPrice+item.getPrice();
+        }
+        assertEquals(totalPrice,388);
+     }
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     @Test
